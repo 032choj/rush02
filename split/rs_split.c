@@ -6,7 +6,7 @@
 /*   By: youngrch <youngrch@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:52:53 by youngrch          #+#    #+#             */
-/*   Updated: 2020/12/05 17:13:49 by youngrch         ###   ########.fr       */
+/*   Updated: 2020/12/05 18:29:25 by youngrch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int         is_space(char c)
 {
-	if (c == ' ' || c == '\t')
+	if (c == '\n')
 		return (1);
 	return (0);
 }
@@ -31,14 +31,9 @@ int         count_word(char *str)
             str++;
         if (*str == '\0')
            break;
-        while (!is_space(*str) && *str != '\0' && *str != '\n')
+        while (!is_space(*str) && *str != '\0')
             str++;
-        count++;
-		if (*str == '\n')
-		{
-			str++;
-			count++;
-		}
+		count++;	
     }
     return (count);
 }
@@ -55,8 +50,18 @@ char        *ft_strndup(char *str, unsigned int n)
         dup[i] = str[i];
         i++;
     }
-    dup[i] = 0;
+    dup[i] = '\0';
     return (dup);
+}
+
+char		*ft_enterdup(void)
+{
+	char *dup;
+
+	dup = (char*)malloc((2)*sizeof(char));
+	dup[0] = 'a';
+	dup[1] = '\0';
+	return (dup);
 }
 
 char        **ft_split(char *str)
@@ -67,6 +72,7 @@ char        **ft_split(char *str)
     char **array;
 
     word_count = count_word(str);
+	printf("%d\n", word_count);
     array = (char**)malloc((word_count + 1) * sizeof(char *));
     i = 0;
     while (*str)
@@ -76,15 +82,10 @@ char        **ft_split(char *str)
         if (*str == '\0')
             break ;
         word_start = str;
-        while (!is_space(*str) && *str != '\0' && *str != '\n')
+        while (!is_space(*str) && *str != '\0')
             str++;
         array[i] = ft_strndup(word_start, str - word_start);
         i++;
-		if (*str == '\n')
-		{
-			array[i] = "\n";
-			i++;
-		}
     }
     array[i] = 0;
     return (array);
@@ -92,10 +93,12 @@ char        **ft_split(char *str)
 
 int main()
 {
-	char a[100] = "10: dddddd\n20: sdfdsf dsfsdfd\n";
+	char a[100] = "10:\n  fff \n 	ff  dddddd20: sdfdsf ";
 	char **bb;
 
 	bb = ft_split(a);
 	printf("%s \n", bb[0]);
+	printf("%s \n", bb[1]);
+	printf("%s \n", bb[2]);
 	return 0 ;
 }

@@ -6,7 +6,7 @@
 /*   By: youngrch <youngrch@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:07:11 by youngrch          #+#    #+#             */
-/*   Updated: 2020/12/05 16:13:33 by youngrch         ###   ########.fr       */
+/*   Updated: 2020/12/05 19:20:00 by youngrch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,8 @@ int         main(int ac, char **av)
 		nb = ft_filenb(ac, av);
 		filename = ft_filename(ac, av);
 		readfile = open_and_read(ac, filename);
-		dic = ft_split(readfile);
+		dic = ft_splitn(readfile);
 		ft_dic_print("10", dic);
-		ft_putchar(' ');
-		ft_dic_print("9", dic);
-		ft_putchar(' ');
-		ft_dic_print("100", dic);
-		ft_putchar(' ');
-		ft_dic_print("20", dic);
-		ft_putchar(' ');
-		ft_dic_print("50", dic);
-		ft_putchar(' ');
-		ft_dic_print("10", dic);
-		ft_putchar(' ');
-		ft_dic_print("0", dic);
 	}
 	return (0);
 }
