@@ -6,7 +6,7 @@
 /*   By: ejung <ejung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 10:49:13 by ejung             #+#    #+#             */
-/*   Updated: 2020/12/05 15:56:48 by youngrch         ###   ########.fr       */
+/*   Updated: 2020/12/05 16:28:37 by youngrch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int			ft_check_1(char **agv)
 	{
 		if (!('0' <= agv[1][i] && agv[1][i] <= '9'))
 		{
-			ft_putchar('d');
 			ft_error();
 			return (0);
 		}
@@ -42,7 +41,6 @@ int			ft_check_2(char **agv)
 			|| ('A' <= agv[1][i] && agv[1][i] <= 'Z')\
 			|| ('a' <= agv[1][i] && agv[1][i] <= 'z')))
 		{
-			ft_putchar('a');
 			ft_error();
 			return (0);
 		}
@@ -53,7 +51,6 @@ int			ft_check_2(char **agv)
 	{
 		if (!('0' <= agv[2][i] && agv[2][i] <= '9'))
 		{	
-			ft_putchar('b');
 			ft_error();
 			return (0);
 		}
