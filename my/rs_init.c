@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   rs_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youngrch <youngrch@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:20:41 by youngrch          #+#    #+#             */
-/*   Updated: 2020/12/05 13:39:13 by youngrch         ###   ########.fr       */
+/*   Updated: 2020/12/05 15:46:33 by youngrch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_make_array(char *array, char *str)
 	i = 0;
 	len = ft_strlen(str);
 	array = (char*)malloc((len + 1) * sizeof(char));
-	while (array[i] != '\0')
+	while (i < len)
 	{
 		array[i] = str[i];
 		i++;
@@ -40,7 +40,7 @@ char	*ft_filename(int argc, char **argv)
 	{
 		filename = ft_make_array(filename, basename);
 	}
-	else
+	else if (argc  == 3)
 	{
 		filename = ft_make_array(filename, argv[1]);
 	}
@@ -56,7 +56,7 @@ char *ft_filenb(int argc, char **argv)
 	{
 		nb = ft_make_array(nb, argv[1]);
 	}
-	else
+	else if (argc == 3)
 	{
 		nb = ft_make_array(nb, argv[2]);
 	}

@@ -6,7 +6,7 @@
 /*   By: youngrch <youngrch@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:07:11 by youngrch          #+#    #+#             */
-/*   Updated: 2020/12/05 15:20:48 by youngrch         ###   ########.fr       */
+/*   Updated: 2020/12/05 15:58:15 by youngrch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int         main(int ac, char **av)
 	{
 		nb = ft_filenb(ac, av);
 		filename = ft_filename(ac, av);
-		printf("%s\n", nb);
 		readfile = open_and_read(ac, filename);
 		dic = ft_split(readfile);
+//		printf("%s   \n", dic[3]);
 	}
 	return (0);
 }
